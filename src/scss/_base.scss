@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-2);
+  transition: 0.2s;
+}
+
+a:hover {
+  text-decoration: none;
+}
