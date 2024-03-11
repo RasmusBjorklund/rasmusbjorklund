@@ -1,15 +1,17 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
+
   export let sections;
 
   let activeSection = window.location.hash.substring(1) || sections[0].id;
+  let observer;
 
-  onMount(() => {
-    const observer = new IntersectionObserver(
+  const observeSections = () => {
+    observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const id = entry.target.getAttribute('id');
-          const link = document.querySelector(`nav li[id="${id}"]`);
+          const link = document.querySelector(`nav li a[href="#${id}"]`);
           if (entry.isIntersecting && entry.intersectionRatio >= 0) {
             window.location.hash = id;
             link.classList.add('active');
@@ -24,26 +26,50 @@
     document.querySelectorAll('section[id]').forEach((section) => {
       observer.observe(section);
     });
+  };
+
+  onMount(() => {
+    observeSections();
   });
 
-  // $: {
-  //   window.addEventListener('hashchange', () =>
-  //     console.log(window.location.hash)
-  //   );
-  // }
+  // Function that disconnects the observer and sets a timeout before re-attaching the observer
+  const resetObserver = () => {
+    if (observer) {
+      observer.disconnect();
+      setTimeout(observeSections, 700);
+    }
+  };
+
+  // The observer is disconnected in the onDestroy lifecycle hook to clean up when the component is destroyed.
+  onDestroy(() => {
+    if (observer) {
+      observer.disconnect();
+    }
+  });
+
+  // Function is called when an anchor link is clicked, which triggers the reset of the observer.
+  const anchorClickHandler = () => {
+    resetObserver();
+  };
 </script>
 
 <nav>
   <ul>
     {#each sections as { name, id }}
-      <li {id} class:active={activeSection === id}>
-        {name}
+      <li>
+        <a
+          href={`#${id}`}
+          class:active={activeSection === id}
+          on:click={anchorClickHandler}
+        >
+          {name}
+        </a>
       </li>
     {/each}
   </ul>
 </nav>
 
-<style>
+<style lang="scss">
   nav {
     position: fixed;
     top: 0%;
@@ -57,33 +83,32 @@
     margin: 0;
   }
 
-  li {
+  a {
     position: relative;
     font-size: 24px;
     font-weight: 700;
     padding: 5px;
     margin: 10px;
+    text-decoration: none;
     display: block;
     color: var(--color-3);
     width: fit-content;
     transition: 0.2s;
-  }
 
-  li.active {
-    color: var(--color-2);
-    text-decoration: line-through;
-  }
+    &.active {
+      color: var(--color-2);
+      text-decoration: line-through;
 
-  li.active::after {
-    position: absolute;
-    right: -15px;
-    top: 5px;
-    display: block;
-    height: 10px;
-    width: 10px;
-    color: rgb(224, 53, 53);
-    content: '•';
-    /* content: '';
-    content: '•'; */
+      &::after {
+        position: absolute;
+        right: -15px;
+        top: 5px;
+        display: block;
+        height: 12px;
+        width: 12px;
+        color: var(--color-red);
+        content: '•';
+      }
+    }
   }
 </style>

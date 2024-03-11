@@ -1,14 +1,14 @@
 <script>
   export let title;
+  export let items;
 </script>
 
 <div>
   <h2>{title}</h2>
   <ul>
-    <li>Front-end development</li>
-    <li>Amazon Web Services</li>
-    <li>Svelte</li>
-    <li>React</li>
+    {#each items as item}
+      <li>{item}</li>
+    {/each}
   </ul>
 </div>
 
@@ -16,6 +16,7 @@
   div {
     border-radius: 6px;
     padding: 50px;
+    max-width: 240px;
     background-color: white;
     color: black;
     box-shadow:
@@ -26,16 +27,30 @@
       rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
 
+  h2 {
+    font-size: 30px;
+    border-bottom: 3px solid;
+    margin: 5px 0;
+    padding: 5px 0;
+    border-bottom-style: dotted;
+  }
+
   ul {
     padding-left: 22px;
     list-style: circle;
   }
 
-  h2 {
-    font-size: 30px;
-    border-bottom: 2px solid;
-    margin: 5px 0;
-    padding: 5px 0;
-    border-bottom-style: dotted;
+  li {
+    word-break: normal;
+  }
+
+  @media (width <=400px) {
+    div {
+      padding: 25px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
   }
 </style>
