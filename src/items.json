@@ -1,18 +1,46 @@
 {
-  "jobs": [
-    "Soleil",
-    "2020 - 2024",
-    "Front-end developer & Project manager"
-  ],
-  "programs": [
-    "AWS",
-    "SiteVision (Certified CSSD & CSWD)",
-    "Photoshop & Illustrator"
-  ],
-  "development": [
-    "Svelte, SvelteKit & Svelte Native",
-    "React",
-    "JavaScript ES6",
-    "NodeJS"
-  ]
+  "jobs": {
+    "items": [
+      "Soleil",
+      "2020 - 2024",
+      "Front-end developer & Project manager"
+    ],
+    "description": [
+      {
+        "heading": "My time Soleil",
+        "text": "I started my web developing career at Soleil in the autum of 2020, after finishing my bachelor's degree in web development at Karlstad university. Soleil is a small company that focuses on development in the public sector and municipalities around Sweden. During my time at the company i worked mostly as a web developer for Scania, Malmö city, Försäkringskassan (The Swedish insurence fund) and the Award winning website for Bollnäs municipality."
+      },
+      {
+        "heading": "What i learned",
+        "text": "I started my web developing career at Soleil in the autum of 2020, after finishing my bachelor's degree in web development at Karlstad university. Soleil is a small company that focuses on development in the public sector and municipalities around Sweden. During my time at the company i worked mostly as a web developer for Scania, Malmö city, Försäkringskassan (The Swedish insurence fund) and the Award winning website for Bollnäs municipality."
+      }
+    ]
+  },
+  "programs": {
+    "items": [
+      "Amazon Web Services (AWS)",
+      "SiteVision (Certified CSSD & CSWD)",
+      "Photoshop & Illustrator"
+    ],
+    "description": [
+      {
+        "heading": "My time Soleil",
+        "text": "I started my web developing career at Soleil in the autum of 2020, after finishing my bachelor's degree in web development at Karlstad university. Soleil is a small company that focuses on development in the public sector and municipalities around Sweden. During my time at the company i worked mostly as a web developer for Scania, Malmö city, Försäkringskassan (The Swedish insurence fund) and the Award winning website for Bollnäs municipality."
+      }
+    ]
+  },
+  "development": {
+    "items": [
+      "Svelte, SvelteKit & Svelte Native",
+      "React",
+      "JavaScript ES6",
+      "NodeJS"
+    ],
+    "description": [
+      {
+        "heading": "My time Soleil",
+        "text": "I started my web developing career at Soleil in the autum of 2020, after finishing my bachelor's degree in web development at Karlstad university. Soleil is a small company that focuses on development in the public sector and municipalities around Sweden. During my time at the company i worked mostly as a web developer for Scania, Malmö city, Försäkringskassan (The Swedish insurence fund) and the Award winning website for Bollnäs municipality."
+      }
+    ]
+  }
 }

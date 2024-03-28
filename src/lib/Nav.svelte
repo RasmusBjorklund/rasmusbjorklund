@@ -2,6 +2,8 @@
   import { onMount, onDestroy } from 'svelte';
 
   export let sections;
+  export let mobile = false;
+  export let isOpen = false;
 
   let activeSection = window.location.hash.substring(1) || sections[0].id;
   let observer;
@@ -53,7 +55,7 @@
   };
 </script>
 
-<nav>
+<nav class:mobile style={isOpen ? 'display: block;' : ''}>
   <ul>
     {#each sections as { name, id }}
       <li>
@@ -72,9 +74,18 @@
 <style lang="scss">
   nav {
     position: fixed;
-    top: 0%;
+    top: 0;
     left: 20px;
     z-index: 2;
+
+    &.mobile {
+      display: none;
+      background-color: var(--color-secondary);
+      width: 100%;
+      left: 0;
+      position: absolute;
+      padding: 20px;
+    }
   }
 
   ul {
@@ -91,12 +102,12 @@
     margin: 10px;
     text-decoration: none;
     display: block;
-    color: var(--color-3);
+    color: var(--color-caribbean);
     width: fit-content;
     transition: 0.2s;
 
     &.active {
-      color: var(--color-2);
+      color: var(--color-secondary);
       text-decoration: line-through;
 
       &::after {

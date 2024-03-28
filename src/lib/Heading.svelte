@@ -9,7 +9,7 @@
       if (i < text.length) {
         document.getElementById('heading').innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeWriter, 400);
+        setTimeout(typeWriter, 200);
       }
     }
     typeWriter();
@@ -27,9 +27,9 @@
     width: 2px;
     height: 50px;
     margin-bottom: -4px;
-    background-color: var(--color-2);
+    background-color: var(--color-secondary);
     margin-left: 2px;
-    animation: blink 0.6s linear infinite alternate;
+    animation: blink 0.3s linear infinite alternate;
   }
 
   @keyframes blink {
