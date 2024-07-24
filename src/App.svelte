@@ -4,10 +4,12 @@
   import Card from './lib/Card.svelte';
   import { development, programs, jobs } from './items.json';
   import { onMount } from 'svelte';
-  import { List } from 'svelte-bootstrap-icons';
+  import { List, Person } from 'svelte-bootstrap-icons';
   import ToggleMode from './lib/ToggleMode.svelte';
+  import nalleLogo from './assets/rasmus.jpeg';
 
   let isOpen = false;
+  // let location;
   $: screenWidth = 0;
 
   const sections = [
@@ -24,6 +26,7 @@
   onMount(() => {
     handleResize();
     window.addEventListener('resize', handleResize);
+    // location = Intl.DateTimeFormat().resolvedOptions().timeZone;
   });
 </script>
 
@@ -44,6 +47,7 @@
 
 <main>
   <section id="hello" style="flex-direction: row;">
+    <!-- <span class="sr-only">{location}</span> -->
     <Heading />
   </section>
   <section id="about">
@@ -65,6 +69,9 @@
   </section>
   <section id="contact">
     <h2>contact</h2>
+    <div class="circle">
+      <img src={nalleLogo} class="logo svelte" alt="Svelte Logo" />
+    </div>
     <div class="grid">
       <a href="https://www.linkedin.com/in/rasmus-bj%C3%B6rklund-6b985a179/"
         >https://linkedin.com/rasmus-björklund</a
@@ -112,5 +119,16 @@
     // &:nth-child(even) {
     //   background-color: var(--color-magenta);
     // }
+  }
+
+  .circle {
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid;
+    margin-bottom: 53px;
+    overflow: hidden;
+    height: 250px;
+    width: 250px;
   }
 </style>

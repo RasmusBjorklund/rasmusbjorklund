@@ -36,8 +36,9 @@
     border-radius: 12px;
     padding: 50px;
     max-width: 240px;
-    background-color: var(--color-white);
-    color: var(--color-black);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
     transition: all 0.2s;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 

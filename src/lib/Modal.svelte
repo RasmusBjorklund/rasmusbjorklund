@@ -23,9 +23,9 @@
   <div on:click|stopPropagation>
     <div class="modal-top">
       <slot name="header" />
-      <button class="button-x" on:click={() => dialog.close()}
-        ><X height={30} width={30} color="black" /></button
-      >
+      <button class="button-x" on:click={() => dialog.close()}>
+        <X height={30} width={30} />
+      </button>
     </div>
     <div class="modal-content">
       <slot />
@@ -42,8 +42,8 @@
     border-radius: 12px;
     border: none;
     padding: 0;
-    background-color: var(--color-white);
-    color: var(--color-black);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
   }
 
   dialog::backdrop {
@@ -63,7 +63,11 @@
   }
 
   .modal-content {
-    padding: 25px 30px;
+    padding: 0 30px 32px;
+
+    :global(h4) {
+      margin: 32px 0 10px;
+    }
 
     :global(p) {
       margin: 0;
@@ -104,8 +108,12 @@
 
   .button-x {
     display: block;
-    padding: 5px;
+    padding: 5px 5px 1px;
     background-color: transparent;
+
+    :global(svg) {
+      fill: var(--color-secondary);
+    }
 
     &:hover {
       box-shadow: none;
