@@ -1,9 +1,9 @@
 <script>
   import { onMount } from 'svelte';
+  const text = 'hello there!';
 
   onMount(() => {
     let i = 0;
-    const text = 'hello there!';
 
     function typeWriter() {
       if (i < text.length) {
@@ -17,7 +17,7 @@
 </script>
 
 <h1 id="heading">
-  <span class="sr-only">hello there!</span>
+  <span class="sr-only">{text}</span>
 </h1>
 <span class="blinker"></span>
 

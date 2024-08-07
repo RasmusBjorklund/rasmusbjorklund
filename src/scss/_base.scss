@@ -21,6 +21,7 @@ main {
 .grid {
   display: flex;
   gap: 25px;
+  max-width: 800px;
   flex-wrap: wrap;
   justify-content: center;
 }

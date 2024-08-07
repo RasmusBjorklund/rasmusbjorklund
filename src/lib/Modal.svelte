@@ -1,6 +1,4 @@
 <script>
-  import { X } from 'svelte-bootstrap-icons';
-
   export let showModal;
 
   let dialog;
@@ -23,15 +21,14 @@
   <div on:click|stopPropagation>
     <div class="modal-top">
       <slot name="header" />
-      <button class="button-x" on:click={() => dialog.close()}>
-        <X height={30} width={30} />
-      </button>
     </div>
     <div class="modal-content">
       <slot />
     </div>
     <div class="modal-bottom">
-      <button class="primary" on:click={() => dialog.close()}>Close</button>
+      <button class="button-effect" on:click={() => dialog.close()}
+        >Close</button
+      >
     </div>
   </div>
 </dialog>
@@ -54,8 +51,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    border-bottom: 2px solid var(--color-secondary);
+    padding: 24px 30px;
 
     :global(h3) {
       margin: 0;
@@ -64,6 +60,8 @@
 
   .modal-content {
     padding: 0 30px 32px;
+    border-top: 2px solid var(--color-secondary);
+    border-bottom: 2px solid var(--color-secondary);
 
     :global(h4) {
       margin: 32px 0 10px;
@@ -76,12 +74,14 @@
 
   .modal-bottom {
     padding: 15px 30px;
-    border-top: 2px solid var(--color-secondary);
-    text-align: end;
   }
 
   dialog[open] {
     animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  dialog[open]::backdrop {
+    animation: fade 0.2s ease-out;
   }
 
   @keyframes zoom {
@@ -93,30 +93,12 @@
     }
   }
 
-  dialog[open]::backdrop {
-    animation: fade 0.2s ease-out;
-  }
-
   @keyframes fade {
     from {
       opacity: 0;
     }
     to {
       opacity: 1;
-    }
-  }
-
-  .button-x {
-    display: block;
-    padding: 5px 5px 1px;
-    background-color: transparent;
-
-    :global(svg) {
-      fill: var(--color-secondary);
-    }
-
-    &:hover {
-      box-shadow: none;
     }
   }
 </style>

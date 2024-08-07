@@ -19,14 +19,14 @@
 </Modal>
 
 <div>
-  <h2>{title}</h2>
+  <h3>{title}</h3>
   <ul>
     {#each items as item}
-      <li>{item}</li>
+      <li>{@html item}</li>
     {/each}
   </ul>
   <button on:click={() => (showModal = true)}>
-    <span class="sr-only">Read more</span>
+    <span class="sr-only">Read more about {title}</span>
   </button>
 </div>
 
@@ -34,26 +34,21 @@
   div {
     position: relative;
     border-radius: 12px;
-    padding: 50px;
-    max-width: 240px;
+    padding: 35px 50px;
+    flex: 100%;
     background-color: var(--color-primary);
     color: var(--color-secondary);
     border: 2px solid var(--color-secondary);
-    transition: all 0.2s;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all 0.2s ease-out;
+    box-shadow: 4px 4px 0 #000;
 
     &:hover {
-      box-shadow:
-        rgba(0, 0, 0, 0.09) 0px 2px 1px,
-        rgba(0, 0, 0, 0.09) 0px 4px 2px,
-        rgba(0, 0, 0, 0.09) 0px 8px 4px,
-        rgba(0, 0, 0, 0.09) 0px 16px 8px,
-        rgba(0, 0, 0, 0.09) 0px 32px 16px;
+      box-shadow: 0 0 0 #000;
+      transform: translate(4px, 4px);
     }
   }
 
-  h2 {
-    font-size: 30px;
+  h3 {
     border-bottom: 3px solid;
     margin: 5px 0;
     padding: 5px 0;
@@ -66,7 +61,7 @@
 
   ul {
     padding-left: 22px;
-    list-style: circle;
+    list-style: square;
   }
 
   li {
@@ -82,6 +77,12 @@
     right: 0;
     background-color: transparent;
     padding: 0;
+    box-shadow: none;
+    border: none;
+
+    &:hover {
+      transform: none;
+    }
   }
 
   @media (width <=400px) {
@@ -89,7 +90,7 @@
       padding: 25px;
     }
 
-    h2 {
+    h3 {
       font-size: 24px;
     }
   }

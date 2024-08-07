@@ -1,5 +1,6 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
+  import blob from '../assets/blob.svg';
 
   export let sections;
   export let mobile = false;
@@ -56,6 +57,7 @@
 </script>
 
 <nav class:mobile style={isOpen ? 'display: block;' : ''}>
+  <img src={blob} class="blob" alt="decorative" />
   <ul>
     {#each sections as { name, id }}
       <li>
@@ -74,8 +76,8 @@
 <style lang="scss">
   nav {
     position: fixed;
-    top: 0;
-    left: 20px;
+    top: 10px;
+    left: 10px;
     z-index: 2;
 
     &.mobile {
@@ -102,12 +104,12 @@
     margin: 10px;
     text-decoration: none;
     display: block;
-    color: var(--color-caribbean);
+    color: var(--color-white);
     width: fit-content;
-    transition: 0.2s;
+    transition: all 0.4s ease-out;
 
     &.active {
-      color: var(--color-secondary);
+      color: var(--color-white);
       text-decoration: line-through;
 
       &::after {
@@ -121,5 +123,13 @@
         content: '•';
       }
     }
+  }
+
+  .blob {
+    position: absolute;
+    height: 120%;
+    width: 200%;
+    left: -100px;
+    top: -8px;
   }
 </style>

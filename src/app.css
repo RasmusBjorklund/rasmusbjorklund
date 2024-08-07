@@ -8,6 +8,10 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --color-white: #F1F7EE;
+  --color-black: #1a1a1a;
+  --color-red: #F2542D;
+
   /*
     #495867
     #577399
@@ -25,23 +29,25 @@
 }
 
 body.dark {
-  --color-primary: #040926;
-  --color-secondary: #00cdcd;
-  --color-caribbean: #0E9594;
-  --color-white: #F7F7FF;
-  --color-black: #1a1a1a;
-  --color-red: #F2542D;
+  --color-primary: #38726C;
+  --color-secondary: #F1F7EE;
   color: var(--color-secondary);
   background-color: var(--color-primary);
 }
 
+/* https: //coolors.co/d9e5d6-00a7e1-eddea4-f7a072-ff9b42 */
+
+/* 
+  #023618
+
+
+#F1F7EE
+
+
+ */
 body.light {
-  --color-primary: #00cdcd;
-  --color-secondary: #040926;
-  --color-caribbean: #0E9594;
-  --color-white: #F7F7FF;
-  --color-black: #1a1a1a;
-  --color-red: #F2542D;
+  --color-primary: #F1F7EE;
+  --color-secondary: #38726C;
   color: var(--color-secondary);
   background-color: var(--color-primary);
 }

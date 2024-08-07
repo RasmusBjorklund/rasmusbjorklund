@@ -4,9 +4,9 @@
   import Card from './lib/Card.svelte';
   import { development, programs, jobs } from './items.json';
   import { onMount } from 'svelte';
-  import { List, Person } from 'svelte-bootstrap-icons';
+  import { List, ArrowDownLeft, LightningFill } from 'svelte-bootstrap-icons';
   import ToggleMode from './lib/ToggleMode.svelte';
-  import nalleLogo from './assets/rasmus.jpeg';
+  import me from './assets/me.png';
 
   let isOpen = false;
   // let location;
@@ -14,7 +14,7 @@
 
   const sections = [
     { name: 'hello', id: 'hello' },
-    { name: 'about', id: 'about' },
+    { name: 'who am i', id: 'about' },
     { name: 'experience', id: 'experience' },
     { name: 'contact', id: 'contact' },
   ];
@@ -51,7 +51,9 @@
     <Heading />
   </section>
   <section id="about">
-    <h2>about</h2>
+    <LightningFill width={38} height={38} />
+    <h2>who am i</h2>
+    <img src={me} class="profile" alt="me the idiot" />
     <p>
       Got a passion for web developing, user experience and good looking
       websites. Love Svelte, music & beer. An excellent combination. But, not in
@@ -62,20 +64,22 @@
   <section id="experience">
     <h2>experience</h2>
     <div class="grid">
-      <Card title="Development" {...development} />
-      <Card title="Programs" {...programs} />
       <Card title="Jobs" {...jobs} />
+      <Card title="Programs" {...programs} />
+      <Card title="Development" {...development} />
     </div>
   </section>
   <section id="contact">
-    <h2>contact</h2>
-    <div class="circle">
+    <h2>reach out <ArrowDownLeft width={32} height={32} /></h2>
+    <!-- <div class="circle">
       <img src={nalleLogo} class="logo svelte" alt="Svelte Logo" />
-    </div>
+    </div> -->
     <div class="grid">
-      <a href="https://www.linkedin.com/in/rasmus-bj%C3%B6rklund-6b985a179/"
-        >https://linkedin.com/rasmus-björklund</a
-      >
+      <button class="button-effect">
+        <a href="https://www.linkedin.com/in/rasmus-bj%C3%B6rklund-6b985a179/">
+          LinkedIn
+        </a>
+      </button>
     </div>
   </section>
 </main>
@@ -121,14 +125,19 @@
     // }
   }
 
-  .circle {
-    display: flex;
-    justify-content: center;
-    border-radius: 50%;
-    border: 2px solid;
-    margin-bottom: 53px;
-    overflow: hidden;
-    height: 250px;
-    width: 250px;
+  .profile {
+    width: 400px;
+    height: 100%;
   }
+
+  // .circle {
+  //   display: flex;
+  //   justify-content: center;
+  //   border-radius: 50%;
+  //   border: 2px solid;
+  //   margin-bottom: 53px;
+  //   overflow: hidden;
+  //   height: 250px;
+  //   width: 250px;
+  // }
 </style>
