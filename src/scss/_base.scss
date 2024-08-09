@@ -26,6 +26,10 @@ main {
   justify-content: center;
 }
 
+.flex-d-column {
+  flex-direction: column;
+}
+
 @media (width <=400px) {
   .grid {
     padding: 25px;

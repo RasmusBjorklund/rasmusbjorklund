@@ -4,7 +4,13 @@
   import Card from './lib/Card.svelte';
   import { development, programs, jobs } from './items.json';
   import { onMount } from 'svelte';
-  import { List, ArrowDownLeft, LightningFill } from 'svelte-bootstrap-icons';
+  import {
+    List,
+    ArrowDownLeft,
+    LightningFill,
+    Github,
+    Linkedin,
+  } from 'svelte-bootstrap-icons';
   import ToggleMode from './lib/ToggleMode.svelte';
   import me from './assets/me.png';
 
@@ -74,11 +80,16 @@
     <!-- <div class="circle">
       <img src={nalleLogo} class="logo svelte" alt="Svelte Logo" />
     </div> -->
-    <div class="grid">
-      <button class="button-effect">
+    <div class="grid flex-d-column">
+      <button class="button-effect button-link">
         <a href="https://www.linkedin.com/in/rasmus-bj%C3%B6rklund-6b985a179/">
           LinkedIn
         </a>
+        <Linkedin />
+      </button>
+      <button class="button-effect button-link">
+        <a href="https://github.com/RasmusBjorklund"> Github </a>
+        <Github />
       </button>
     </div>
   </section>
